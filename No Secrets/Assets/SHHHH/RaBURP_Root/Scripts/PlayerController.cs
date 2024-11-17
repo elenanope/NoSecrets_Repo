@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         isGrounded = true;
-        transform.position = new Vector3(4.7f, 1f, 4f);
+        
     }
 
     // Update is called once per frame
