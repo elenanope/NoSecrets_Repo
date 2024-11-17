@@ -29,9 +29,11 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject Player;
     public GameObject Cake;
     public Rigidbody cakeRb; // Referencia al Rigidbody del Cake
     public float forceMultiplier = 1f;
+    public float cakeSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -64,10 +66,7 @@ public class PlayerController : MonoBehaviour
         }
         
         
-        if(animator.GetBool("isPulling") == true)
-        {
-            animator.Play("Pull Heavy Object");
-        }
+      
 
         if ((animator.GetFloat("VelX") == 0) && (animator.GetFloat("VelY") == 0))
         {
@@ -75,23 +74,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0) && (cakeNear == true))
-        {
-            animator.SetBool("isPulling", true);
-            
-        }
-        // Mover el Cake mientras se mantenga el botón presionado y haya un objeto asignado
-        if (cakeNear == true && Input.GetMouseButton(0))
-        {
-            // Calcula la fuerza a aplicar usando la velocidad del player
-            Vector3 forceToApply = playerRb.velocity * forceMultiplier;
-
-            // Aplica la fuerza al objeto Cake
-            cakeRb.AddForce(forceToApply, ForceMode.Force);
-
-            //cakeRb.AddForce(transform.forward * forceAmount, ForceMode.Force);
-            animator.SetBool("isPulling", true);
-        }
 
     }
 
@@ -112,26 +94,7 @@ public class PlayerController : MonoBehaviour
         else if ((collision.gameObject.CompareTag("Cake")) && (animator.GetFloat("VelY") != 0))
         {
             animator.SetBool("isPushing", true);
-        }
-
-
-        if ((collision.gameObject.CompareTag("Cake")) && (Input.GetMouseButtonDown(0)) && (animator.GetFloat("VelX") != 0))
-        {
-            animator.SetBool("isPulling", true);
-           
-        }
-        else if ((collision.gameObject.CompareTag("Cake"))&&(Input.GetMouseButtonDown(0)) && (animator.GetFloat("VelY") != 0))
-        {
-            animator.SetBool("isPulling", true);
-        }
-        else
-        {
-            animator.SetBool("isPulling", false) ;
-        }
-
-       
-       
-        
+        } 
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -154,7 +117,6 @@ public class PlayerController : MonoBehaviour
         {
             cakeNear = true;
         }
-
 
     }
     private void OnCollisionExit(Collision collision)
