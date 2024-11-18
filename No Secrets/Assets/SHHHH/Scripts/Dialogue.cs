@@ -14,11 +14,11 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TMP_Text dialogueWomanText;
 
 
-    private bool didDialogueStart;
-    private int lineIndex;
-    private float typingTime = 0.05f;
+    public bool didDialogueStart;
+    public int lineIndex;
+    public float typingTime = 0.05f;
 
-    private bool isManSpeaking = true; // Alterna entre hombre y mujer
+    public bool isManSpeaking = true; // Alterna entre hombre y mujer
 
 
 
