@@ -133,9 +133,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        if (other.gameObject.CompareTag("Man"))
         {
-            playerAudio.PlayOneShot(soundLibrary[2]);
+            //playerAudio.PlayOneShot(soundLibrary[2]);
         }
     }
 
