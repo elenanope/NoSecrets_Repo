@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 52f067eb9bfd161469477dca428c5588, type: 2}
   m_HaloStrength: 0.5
@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 98b80531bb6c1b6409756e47edca502f,
     type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 7b51765e39f7276449ec816a78b9e496,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 953da8a901cbd694eabd311b8ec21b5d,
     type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -1239,6 +1239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 121.228
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990943533197572844, guid: c585fe7f625348541856577b8f1ec106,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9212552218731437618, guid: c585fe7f625348541856577b8f1ec106,
         type: 3}
