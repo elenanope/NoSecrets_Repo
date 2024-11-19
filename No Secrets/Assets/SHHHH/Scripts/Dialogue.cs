@@ -20,7 +20,9 @@ public class Dialogue : MonoBehaviour
     private bool didDialogueStart = false;
 
     private bool dialoguePlayedOnce = false;
+    
 
+    
     public GameObject nuevaImagen;
     public GameObject viejaImagen;
 
@@ -37,6 +39,18 @@ public class Dialogue : MonoBehaviour
                 HandleDialogueProgression();
             }
         }
+        if ((dialoguePlayedOnce) && (Input.GetKeyDown(KeyCode.Mouse0)))
+        {
+            if(viejaImagen.gameObject.activeInHierarchy ) 
+            {
+                nuevaImagen.gameObject.SetActive(true);
+                viejaImagen.gameObject.SetActive(false);
+
+            }
+            
+           
+        }
+        
     }
 
     void StartDialogue()
@@ -156,8 +170,8 @@ public class Dialogue : MonoBehaviour
         dialoguePanelWoman.SetActive(false);
         didDialogueStart = false;
         Debug.Log("Diálogo terminado.");
-        nuevaImagen.gameObject.SetActive(true);
-        viejaImagen.gameObject.SetActive(false);
+        
+        
         dialoguePlayedOnce = true;
     }
 }
