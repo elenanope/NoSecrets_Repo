@@ -4,34 +4,49 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public int points; //Variable que almacena los puntos del jugador
-    public int winPoints; //Define la cantidad de puntos necesarios para pasar de nivel
-    public GameObject winGoal; //Referencia al objeto que representa la meta
 
+    public bool availableToOpenGifts = false;
+  
+    public Collider gift1;
+    public Collider gift2;
+    public Collider gift3;
+    public GameObject primergift;
+    public GameObject segundogift;
+    public GameObject tercerogift;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (points >= winPoints)
-        {
-            winGoal.SetActive(true);
-        }
+        
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        //if ((other==gift1)|(other==gift2)|(other==gift3))
+        //{
+            //availableToOpenGifts = true;
+        //}
+        if ((Input.GetKeyDown (KeyCode.Mouse0)))
         {
-            points += 1;
-            other.gameObject.SetActive(false); //Apaga el objeto con el que he chocado
-            //Destroy(other.gameObject);
+            if(other == gift1)
+            {
+                primergift.gameObject.SetActive(false);
+            }
+            else if (other == gift2)
+            {
+                segundogift.gameObject.SetActive(false);
+            }
+            else if(other == gift3)
+            {
+                tercerogift.gameObject.SetActive(false);
+            }
+
+            //no va
+            
         }
     }
 
