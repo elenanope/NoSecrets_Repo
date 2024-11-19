@@ -28,7 +28,7 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Mouse0))&& (!dialoguePlayedOnce))
+        if (((Input.GetKeyDown(KeyCode.RightArrow)) | (Input.GetKeyDown(KeyCode.D)))&& (!dialoguePlayedOnce))
         {
             if (!didDialogueStart)
             {
@@ -39,7 +39,7 @@ public class Dialogue : MonoBehaviour
                 HandleDialogueProgression();
             }
         }
-        if ((dialoguePlayedOnce) && (Input.GetKeyDown(KeyCode.Mouse0)))
+        if ((dialoguePlayedOnce) && ((Input.GetKeyDown(KeyCode.RightArrow)) | (Input.GetKeyDown(KeyCode.D))))
         {
             if(viejaImagen.gameObject.activeInHierarchy ) 
             {

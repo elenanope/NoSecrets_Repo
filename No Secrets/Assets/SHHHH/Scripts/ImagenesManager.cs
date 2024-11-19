@@ -46,7 +46,7 @@ public class ImagenesManager : MonoBehaviour
             dialogueCanStart = true;
 
         }
-        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (dialogueCanStart))
+        if (((Input.GetKeyDown(KeyCode.RightArrow)) | (Input.GetKeyDown(KeyCode.D))) && (dialogueCanStart))
         {
             if (!didDialogueStart)
             {
@@ -65,7 +65,7 @@ public class ImagenesManager : MonoBehaviour
             images[6].gameObject.SetActive(true);
             images[5].gameObject.SetActive(false);
         }
-        if ((spaceAvailable) && (Input.GetKeyDown(KeyCode.Mouse0)) && (images[6].gameObject.activeInHierarchy))
+        if ((spaceAvailable) && ((Input.GetKeyDown(KeyCode.RightArrow))|(Input.GetKeyDown(KeyCode.D))) && (images[6].gameObject.activeInHierarchy))
         {
             images[7].gameObject.SetActive(true);
             images[6].gameObject.SetActive(false);
@@ -74,7 +74,7 @@ public class ImagenesManager : MonoBehaviour
         }
         if ((spaceAvailable)  && (nextSceneAvailable))
         {
-            if(Input.GetKeyDown(KeyCode.Mouse0))
+            if ((Input.GetKeyDown(KeyCode.RightArrow)) | (Input.GetKeyDown(KeyCode.D)))
             {
                 SceneLoader(2);
             }

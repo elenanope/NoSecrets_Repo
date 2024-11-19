@@ -34,10 +34,12 @@ public class PlayerMove : MonoBehaviour
 
 
 
-        if(Input.GetKey("p"))
+        if(Input.GetKeyDown(KeyCode.Backspace))
         {
-            animator.SetBool("Other", false);
+            
             animator.Play("Punching");
+
+            //no va
         }
 
 

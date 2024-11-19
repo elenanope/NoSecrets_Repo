@@ -13,9 +13,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject primergift;
     public GameObject segundogift;
     public GameObject tercerogift;
-    
-    
-    
+
 
     // Update is called once per frame
     void Update()
@@ -30,23 +28,30 @@ public class PlayerInteraction : MonoBehaviour
         //{
             //availableToOpenGifts = true;
         //}
-        if ((Input.GetKeyDown (KeyCode.Mouse0)))
+        if (other == gift1)
         {
-            if(other == gift1)
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 primergift.gameObject.SetActive(false);
             }
-            else if (other == gift2)
+         
+            //no va
+            
+        }
+
+        else if (other == gift2)
+        {
+            if(Input.GetKeyDown(KeyCode.Mouse0))
             {
                 segundogift.gameObject.SetActive(false);
             }
-            else if(other == gift3)
+        }
+        else if (other == gift3)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 tercerogift.gameObject.SetActive(false);
             }
-
-            //no va
-            
         }
     }
 
