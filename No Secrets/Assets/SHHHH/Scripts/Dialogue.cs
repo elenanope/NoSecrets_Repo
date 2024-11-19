@@ -19,9 +19,14 @@ public class Dialogue : MonoBehaviour
     private bool isTyping = false; // Controla si se está escribiendo la línea actualmente
     private bool didDialogueStart = false;
 
+    private bool dialoguePlayedOnce = false;
+
+    public GameObject nuevaImagen;
+    public GameObject viejaImagen;
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if ((Input.GetKeyDown(KeyCode.Mouse0))&& (!dialoguePlayedOnce))
         {
             if (!didDialogueStart)
             {
@@ -151,5 +156,8 @@ public class Dialogue : MonoBehaviour
         dialoguePanelWoman.SetActive(false);
         didDialogueStart = false;
         Debug.Log("Diálogo terminado.");
+        nuevaImagen.gameObject.SetActive(true);
+        viejaImagen.gameObject.SetActive(false);
+        dialoguePlayedOnce = true;
     }
 }
