@@ -6,15 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SHHHH/Scenes/mainMenu.unity
+    path: Assets/SHHHH/Scenes/0.mainMenu.unity
     guid: a55031a27614a7549a7e470b531bcc4e
   - enabled: 1
-    path: Assets/SHHHH/Scenes/introDialogue.unity
+    path: Assets/SHHHH/Scenes/1.introDialogue.unity
     guid: 678c17b79c726d74287416ec1f9c2bfc
   - enabled: 1
-    path: Assets/SHHHH/Scenes/cakeSteal.unity
+    path: Assets/SHHHH/Scenes/2.cakeSteal.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/SHHHH/Scenes/GiftBreaker.unity
+    path: Assets/SHHHH/Scenes/3.giftBreaker.unity
     guid: 3654a01b406bf8c42b42de4a5c578a02
+  - enabled: 1
+    path: Assets/SHHHH/Scenes/4.PCLevel.unity
+    guid: 88d7327126ce0c849aae1c6d1a3b0d38
+  - enabled: 1
+    path: Assets/SHHHH/Scenes/5.Anger.unity
+    guid: 70e4c0536489e8a418516a038425b2eb
+  - enabled: 1
+    path: Assets/SHHHH/Scenes/6.Future.unity
+    guid: 3cd1631e5020925479a00e78d62d4d02
   m_configObjects: {}

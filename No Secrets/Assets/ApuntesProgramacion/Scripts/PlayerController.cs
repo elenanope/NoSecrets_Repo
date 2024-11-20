@@ -131,13 +131,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Man"))
-        {
-            //playerAudio.PlayOneShot(soundLibrary[2]);
-        }
-    }
 
     void VelocityMove()
     {
