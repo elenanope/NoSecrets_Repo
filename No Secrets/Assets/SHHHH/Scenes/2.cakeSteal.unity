@@ -1196,6 +1196,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3107081507671183909, guid: cbd807a91dba20d4dbc5994043b40ef2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -1787745424648543715, guid: 2625c4d4559a375478bd7806ef20f755,
+        type: 3}
     - target: {fileID: 4787515737701591298, guid: cbd807a91dba20d4dbc5994043b40ef2,
         type: 3}
       propertyPath: m_RootOrder
@@ -1408,6 +1414,22 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3111858633454240937, guid: 79844659aed1ba347bcfcc0eec12dfcb,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111858633454240937, guid: 79844659aed1ba347bcfcc0eec12dfcb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17fc604eb7000ba4192fb359fef735b8,
+        type: 3}
+    - target: {fileID: 3111858633454240937, guid: 79844659aed1ba347bcfcc0eec12dfcb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3533720888032738059, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1513,6 +1535,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3833606804120383511, guid: 79844659aed1ba347bcfcc0eec12dfcb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7389084166049133842, guid: 79844659aed1ba347bcfcc0eec12dfcb,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7389084166049133842, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_Color.b
@@ -1531,45 +1563,46 @@ PrefabInstance:
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9710001
+      value: 0.9815209
       objectReference: {fileID: 0}
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.13736701
+      value: 0.192
       objectReference: {fileID: 0}
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.85300004
+      value: 0.878
       objectReference: {fileID: 0}
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.046000004
+      value: 0.030853199
       objectReference: {fileID: 0}
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -0.1740036
+      value: -7.5270004
       objectReference: {fileID: 0}
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 5.7060013
+      value: 0.6750002
       objectReference: {fileID: 0}
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.9130249
+      value: 0.27600098
       objectReference: {fileID: 0}
     - target: {fileID: 8863544036352752426, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.8189697
+      value: -0.9379883
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3833606804120383511, guid: 79844659aed1ba347bcfcc0eec12dfcb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3533720888032738059, guid: 79844659aed1ba347bcfcc0eec12dfcb,
         type: 3}
