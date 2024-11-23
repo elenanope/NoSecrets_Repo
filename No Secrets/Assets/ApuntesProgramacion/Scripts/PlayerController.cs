@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public float forceMultiplier = 1f;
     public float cakeSpeed;
 
+    public GameObject imänAyuda;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +73,13 @@ public class PlayerController : MonoBehaviour
         if ((animator.GetFloat("VelX") == 0) && (animator.GetFloat("VelY") == 0))
         {
             animator.SetBool("isPushing", false);
+
+
+        }
+
+        if(cakeNear)
+        {
+            imänAyuda.SetActive(true);
         }
 
 

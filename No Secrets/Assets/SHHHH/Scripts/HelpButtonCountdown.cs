@@ -9,6 +9,7 @@ public class HelpButtonCountdown : MonoBehaviour
 {
     public int timesClicked;
     public Button HelpButton;
+    public GameObject HelpButtonContainer;
 
 
 
@@ -27,7 +28,7 @@ public class HelpButtonCountdown : MonoBehaviour
     {
         if(timesClicked == 3)
         {
-            HelpButton.gameObject.SetActive(false);
+            HelpButtonContainer.gameObject.SetActive(false);
         }
     }
 
