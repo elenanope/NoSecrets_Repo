@@ -32,11 +32,7 @@ public class panelesWin : MonoBehaviour
             panelEnvio.SetActive(false);
             
         }
-        if ((panelWin.activeInHierarchy) && ((Input.GetKeyDown(KeyCode.D)) | (Input.GetKeyDown(KeyCode.RightArrow))))
-        {
-            
-            SceneLoader(5);
-        }
+        
         // Verifica si el script existe
         if ((playerScript != null) && ((panelEnvio.activeInHierarchy)||(panelWin.activeInHierarchy)))
         {
@@ -45,11 +41,7 @@ public class panelesWin : MonoBehaviour
         }
 
     }
-    public void SceneLoader(int sceneToLoad)
-    {
-
-        SceneManager.LoadScene(sceneToLoad);
-    }
+    
 
 }
 
