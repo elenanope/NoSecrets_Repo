@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
-        playerAudio.PlayOneShot(soundLibrary[1]);
+        //playerAudio.PlayOneShot(soundLibrary[1]);
         //Cambia la posición del player por la posición del punto de respawn
         transform.position = respawnPoint.transform.position;
     }
