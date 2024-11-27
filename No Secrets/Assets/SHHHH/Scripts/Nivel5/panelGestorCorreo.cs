@@ -25,9 +25,11 @@ public class PanelGestorCorreo : MonoBehaviour
     
 
     private int currentSteps = 0; // Controla el paso actual del dialogo
+    private int currentStep = 0; // Controla el paso actual del dialogo
     public GameObject elTimer;
     public GameObject timerPanel;
     public GameObject cluePanel;
+    public GameObject panelUltimo;
     //public GameObject elPlayer;
 
     public Image[] images;
@@ -105,19 +107,8 @@ public class PanelGestorCorreo : MonoBehaviour
 
                     HandlePicturesProgression();
                 }
-
-
             }
-
-
         }
-
-
-
-        
-
-
-
     }
 
     void StartPicturesPanels()
@@ -129,29 +120,33 @@ public class PanelGestorCorreo : MonoBehaviour
     void Start2PicturesPanels()
     {
         did2MailStart = true;
-        currentSteps = 0;
+        currentStep = 0;
         Show2MailStep();
     }
     void Handle2PicturesProgression()
     {
-
-
-        currentSteps++;
-        if (currentSteps < 6) // Numero total de pasos (0 a 10)
+        if (isTyping)
         {
-            Show2MailStep();
+            StopAllCoroutines(); // Completa la línea actual inmediatamente
+            CompleteCurrentLine();
         }
         else
         {
-            End2Mail();
+            currentStep++;
+            if (currentStep < 7) // Número total de pasos (0 a 10)
+            {
+                Show2MailStep();
+            }
+           else
+            {
+                End2Mail();
+            }
         }
-
-
 
     }
     void Show2MailStep()
     {
-        switch (currentSteps)
+        switch (currentStep)
         {
             case 0:
                 images[6].gameObject.SetActive(true);
@@ -166,21 +161,35 @@ public class PanelGestorCorreo : MonoBehaviour
                 
             case 2:
                 images[8].gameObject.SetActive(true);
+                ShowManDialogue2(0);
                 images[7].gameObject.SetActive(false);
                 break;
             case 3:
                 images[9].gameObject.SetActive(true);
+                dialogueTextMan2.gameObject.SetActive(false);
+                ShowManDialogue22(1);
                 images[8].gameObject.SetActive(false);
                 break;
             case 4:
                 images[10].gameObject.SetActive(true);
+                dialogueTextMan22.gameObject.SetActive(false); 
+                dialogueTextMan2.gameObject.SetActive(true);
+                ShowManDialogue2(2);
                 images[9].gameObject.SetActive(false);
                 break;
             case 5:
                 images[11].gameObject.SetActive(true);
+                dialogueTextMan2.gameObject.SetActive(false);
+                ShowGeyDialogue(0);
                 images[10].gameObject.SetActive(false);
                 break;
-
+            case 6:
+                images[7].gameObject.SetActive(true);
+                dialogueTextGey.gameObject.SetActive(false);    
+                panelUltimo.gameObject.SetActive(true);
+                images[11].gameObject.SetActive(false);
+                
+                break;
 
 
 
@@ -205,17 +214,15 @@ void HandlePicturesProgression()
             {
                 ShowMailStep();
             }
-            else
+            //else
             {
-                EndMail();
+                //EndMail();
             }
         }
 
 
 
     }
-
-
 
     void ShowMailStep()
     {
@@ -264,23 +271,39 @@ void HandlePicturesProgression()
                 //images[4].gameObject.SetActive(false);
                 elTimer.gameObject.SetActive(false);
                 timerPanel.gameObject.SetActive(false);
-                
+                cluePanel.gameObject.SetActive(false);
                 images[6].gameObject.SetActive(true);
                 images[5].gameObject.SetActive(false);
+                MailOver = true;
                 break;
 
         }
     }
-    void EndMail()
-    {
-        MailOver = true;
-    }
+    //void EndMail()
+    //{
+        //MailOver = true;
+    //}
 
     void ShowManDialogue(int lineIndex)
     {
         dialoguePanelMan.SetActive(true);
         dialoguePanelMaya.SetActive(false);
         StartCoroutine(TypeLine(dialogueManText, dialogueLinesMan[lineIndex]));
+    }
+     void ShowGeyDialogue(int lineIndex)
+    {
+        
+        StartCoroutine(TypeLine(dialogueTextGey, dialogueLinesGey[lineIndex]));
+    }
+     void ShowManDialogue2(int lineIndex)
+    {
+        
+        StartCoroutine(TypeLine(dialogueTextMan2, dialogueLinesMan2[lineIndex]));
+    }
+    void ShowManDialogue22(int lineIndex)
+    {
+        
+        StartCoroutine(TypeLine(dialogueTextMan22, dialogueLinesMan2[lineIndex]));
     }
 
     void ShowMayaDialogue(int lineIndex)
@@ -306,23 +329,46 @@ void HandlePicturesProgression()
 
     void CompleteCurrentLine()
     {
-        if (currentSteps == 1) // Pasos hombre
+        if(!MailOver)
         {
-            dialogueManText.text = dialogueLinesMan[0];
+            if (currentSteps == 1) // Pasos hombre
+            {
+                dialogueManText.text = dialogueLinesMan[0];
+            }
+            else if (currentSteps == 2)
+            {
+                dialogueManText.text = dialogueLinesMan[1];
+            }
+            else if (currentSteps == 3) //Pasos Gey
+            {
+                dialogueTextMaya.text = dialogueLinesMaya[0];
+            }
+            else if (currentSteps == 4)
+            {
+                dialogueManText.text = dialogueLinesMan[2];
+            }
         }
-        else if (currentSteps == 2)
+        else
         {
-            dialogueManText.text = dialogueLinesMan[1];
+            if (currentStep == 2)
+            {
+                dialogueTextMan2.text = dialogueLinesMan2[0];
+
+            }
+            else if (currentStep == 3)
+            {
+                dialogueTextMan22.text = dialogueLinesMan2[1];
+            }
+            else if (currentStep == 4)
+            {
+                dialogueTextMan2.text = dialogueLinesMan2[2];
+            }
+            else if (currentStep == 5)
+            {
+                dialogueTextGey.text = dialogueLinesGey[0];
+            }
         }
-        else if (currentSteps == 3) //Pasos Gey
-        {
-            dialogueTextMaya.text = dialogueLinesMaya[0];
-        }
-        else if (currentSteps == 4)
-        {
-            dialogueManText.text = dialogueLinesMan[2];
-        }
-       
+
 
         isTyping = false;
     }
