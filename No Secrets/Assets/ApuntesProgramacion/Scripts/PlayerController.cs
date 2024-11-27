@@ -68,7 +68,10 @@ public class PlayerController : MonoBehaviour
         }
         
         
-      
+        if(Input.GetKey(KeyCode.Backspace))
+        {
+            animator.Play("Punching");
+        }
 
         if ((animator.GetFloat("VelX") == 0) && (animator.GetFloat("VelY") == 0))
         {
@@ -94,6 +97,9 @@ public class PlayerController : MonoBehaviour
 
         
     }
+
+
+   
     private void OnCollisionStay(Collision collision)
     {
         if ((collision.gameObject.CompareTag("Cake")) && (animator.GetFloat("VelX") != 0))
