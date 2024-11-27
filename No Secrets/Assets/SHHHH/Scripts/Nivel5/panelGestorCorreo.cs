@@ -15,6 +15,13 @@ public class PanelGestorCorreo : MonoBehaviour
     [SerializeField] private GameObject dialoguePanelMaya;
     [SerializeField] private TMP_Text dialogueTextMaya;
 
+    [SerializeField, TextArea] private string[] dialogueLinesMan2;
+    [SerializeField] private TMP_Text dialogueTextMan2;
+    [SerializeField] private TMP_Text dialogueTextMan22;
+
+     [SerializeField, TextArea] private string[] dialogueLinesGey;
+    [SerializeField] private TMP_Text dialogueTextGey;
+
     
 
     private int currentSteps = 0; // Controla el paso actual del dialogo
@@ -78,30 +85,36 @@ public class PanelGestorCorreo : MonoBehaviour
             
 
         }
-
-
-
-        if ((Input.GetKeyDown(KeyCode.RightArrow)) | (Input.GetKeyDown(KeyCode.D)))
+        if (!MailOver)
         {
-            if (!didMailStart)
+            if ((Input.GetKeyDown(KeyCode.RightArrow)) | (Input.GetKeyDown(KeyCode.D)))
             {
-                StartPicturesPanels();
+                if (!didMailStart)
+                {
+                    StartPicturesPanels();
+                }
+                else if (currentSteps < 5)
+                {
+                    HandlePicturesProgression();
+                }
             }
-            else if (currentSteps<5)
+            if (Input.GetKeyDown(KeyCode.Backspace))
             {
-                HandlePicturesProgression();
+                if (currentSteps >= 5)
+                {
+
+                    HandlePicturesProgression();
+                }
+
+
             }
+
+
         }
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            if (currentSteps >= 5)
-            {
-                
-                HandlePicturesProgression();    
-            }
-            
-            
-        }
+
+
+
+        
 
 
 
@@ -247,16 +260,14 @@ void HandlePicturesProgression()
 
                 break;
             case 9:
-                images[5].gameObject.SetActive(true);
-                images[4].gameObject.SetActive(false);
+                //images[5].gameObject.SetActive(true);
+                //images[4].gameObject.SetActive(false);
                 elTimer.gameObject.SetActive(false);
                 timerPanel.gameObject.SetActive(false);
+                
+                images[6].gameObject.SetActive(true);
+                images[5].gameObject.SetActive(false);
                 break;
-
-           
-              
-
-
 
         }
     }
@@ -292,6 +303,7 @@ void HandlePicturesProgression()
         isTyping = false;
     }
    
+
     void CompleteCurrentLine()
     {
         if (currentSteps == 1) // Pasos hombre
