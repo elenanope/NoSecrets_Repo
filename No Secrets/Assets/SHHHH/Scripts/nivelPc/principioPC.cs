@@ -10,7 +10,7 @@ public class principioPC : MonoBehaviour
     
     
     private int currentStep = 0; // Controla el paso actual del dialogo
-    public GameObject timeManagerr;
+    public GameObject timerr;
     public GameObject player;
     
     public Image[] images;
@@ -30,7 +30,7 @@ public class principioPC : MonoBehaviour
 
     private void Start()
     {
-        timeManagerr.gameObject.SetActive(false);
+        timerr.gameObject.SetActive(false);
         player.SetActive(false);
         
     }
@@ -54,7 +54,7 @@ public class principioPC : MonoBehaviour
 
             
             
-                timeManagerr.gameObject.SetActive(true);
+                timerr.gameObject.SetActive(true);
                 player.SetActive(true);
             
 
@@ -66,11 +66,11 @@ public class principioPC : MonoBehaviour
         {
             if (!didSecuenceStart)
             {
-                StartDialoguePanels();
+                StartMailPanels();
             }
             else
             {
-                HandlePanelsProgression();
+                HandleMailProgression();
             }
         }
        
@@ -78,7 +78,7 @@ public class principioPC : MonoBehaviour
 
     }
 
-    void StartDialoguePanels()
+    void StartMailPanels()
     {
         didSecuenceStart=true;
         currentStep = 0;
@@ -88,7 +88,7 @@ public class principioPC : MonoBehaviour
 
 
 
-    void HandlePanelsProgression()
+    void HandleMailProgression()
     {
 
         
