@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.Backspace))
         {
             animator.Play("Punching");
+            playerAudio.PlayOneShot(soundLibrary[0]);
         }
 
         if ((animator.GetFloat("VelX") == 0) && (animator.GetFloat("VelY") == 0))
@@ -168,6 +169,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.Play("Jump");
+            playerAudio.PlayOneShot(soundLibrary[1]);
         }
     }
 
@@ -175,7 +177,7 @@ public class PlayerController : MonoBehaviour
 
     void Respawn()
     {
-        //playerAudio.PlayOneShot(soundLibrary[1]);
+        playerAudio.PlayOneShot(soundLibrary[2]);
         //Cambia la posición del player por la posición del punto de respawn
         transform.position = respawnPoint.transform.position;
     }

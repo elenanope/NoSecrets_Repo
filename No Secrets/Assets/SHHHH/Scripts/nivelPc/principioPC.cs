@@ -12,6 +12,7 @@ public class principioPC : MonoBehaviour
     private int currentStep = 0; // Controla el paso actual del dialogo
     public GameObject timerr;
     public GameObject player;
+    public GameObject panelAyuda;
     
     public Image[] images;
 
@@ -145,6 +146,7 @@ public class principioPC : MonoBehaviour
     void EndDialogue()
     {
         storyOver = true;
+        panelAyuda.SetActive(true);
     }
 
     

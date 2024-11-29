@@ -9,7 +9,7 @@ public class PanelesYDialogo : MonoBehaviour
 {
 
 
-    public string dialogueLineKid;
+    public string[] dialogueLineKid;
     [SerializeField] private TMP_Text dialogueKid;
     public Image[] images;
     public GameObject panelPrimerDialogo;
@@ -66,7 +66,7 @@ public class PanelesYDialogo : MonoBehaviour
         else
         {
             currentStep++;
-            if (currentStep < 5) // Número total de pasos (0 a 10)
+            if (currentStep < 4) // Número total de pasos (0 a 10)
             {
                 ShowPanelStep();
             }
@@ -97,15 +97,15 @@ public class PanelesYDialogo : MonoBehaviour
             case 2:
                 images[3].gameObject.SetActive(true);
                 images[2].gameObject.SetActive(false);
+                dialogueKid.gameObject.SetActive(true);
+                ShowKidDialogue(1);
                 break;
             case 3:
                 images[4].gameObject.SetActive(true);
                 images[3].gameObject.SetActive(false);
+                ShowKidDialogue(2);
                 break;
-            case 4:
-                images[5].gameObject.SetActive(true);
-                images[4].gameObject.SetActive(false);
-                break;
+            
            
         }
     }
@@ -113,7 +113,7 @@ public class PanelesYDialogo : MonoBehaviour
     void ShowKidDialogue(int lineIndex)
     {
         
-        StartCoroutine(TypeLine(dialogueKid, dialogueLineKid));
+        StartCoroutine(TypeLine(dialogueKid, dialogueLineKid[lineIndex]));
     }
 
     IEnumerator TypeLine(TMP_Text textComponent, string line)
@@ -134,7 +134,15 @@ public class PanelesYDialogo : MonoBehaviour
     {
         if (currentStep == 0) // Pasos hombre
         {
-            dialogueKid.text = dialogueLineKid;
+            dialogueKid.text = dialogueLineKid[0];
+        }
+        else if (currentStep == 2)
+        {
+            dialogueKid.text = dialogueLineKid[1];
+        }
+        else if (currentStep == 3)
+        {
+            dialogueKid.text = dialogueLineKid[2];
         }
         
 
@@ -145,6 +153,7 @@ public class PanelesYDialogo : MonoBehaviour
     {
         panelPrimerDialogo.gameObject.SetActive(false);
         player.gameObject.SetActive(true);
+        dialogueKid.gameObject.SetActive(false);
 
         Debug.Log("Diálogo terminado.");
 

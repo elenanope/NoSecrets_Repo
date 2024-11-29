@@ -8,6 +8,7 @@ public class panelesWin : MonoBehaviour
     public GameObject panelEnvio;
     public GameObject panelWin;
     public GameObject player;
+    public GameObject timer;
     // Busca el componente PlayerScript dentro del GameObject referenciado como "player"
     PlayerController playerScript;
 
@@ -38,6 +39,7 @@ public class panelesWin : MonoBehaviour
         {
             // Desactiva el script
             playerScript.enabled = false;
+            timer.SetActive(false);
         }
 
     }

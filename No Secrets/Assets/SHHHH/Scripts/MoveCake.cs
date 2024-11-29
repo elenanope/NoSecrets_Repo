@@ -6,6 +6,7 @@ public class MoveCake : MonoBehaviour
 {
     public GameObject Player;
     public GameObject Cake;
+    public GameObject panelAyuda;
     public float cakeSpeed;
 
 
@@ -13,6 +14,12 @@ public class MoveCake : MonoBehaviour
     {
         Cake.transform.position = Vector3.MoveTowards(Cake.transform.position, Player.transform.position, cakeSpeed);
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            panelAyuda.SetActive(false);
+        }
+    }
 
 }

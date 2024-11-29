@@ -16,6 +16,7 @@ public class ImagenesManager : MonoBehaviour
     [SerializeField] private TMP_Text dialogueTextGey;
 
     public GameObject nuevaImagen;
+    public GameObject panelSpace;
     public bool dialogueCanStart= false;
     private int currentStep = 0; // Controla el paso actual del diálogo
     private float typingTime = 0.05f;
@@ -64,6 +65,7 @@ public class ImagenesManager : MonoBehaviour
         {
             images[6].gameObject.SetActive(true);
             images[5].gameObject.SetActive(false);
+            panelSpace.SetActive(false);
         }
         if ((spaceAvailable) && ((Input.GetKeyDown(KeyCode.RightArrow))|(Input.GetKeyDown(KeyCode.D))) && (images[6].gameObject.activeInHierarchy))
         {
@@ -183,6 +185,7 @@ public class ImagenesManager : MonoBehaviour
             case 10:
                 images[5].gameObject.SetActive(true);
                 images[4].gameObject.SetActive(false);
+                panelSpace.SetActive(true);
                 //poner aqui cartel para pulsar espacio
                 spaceAvailable= true;
                 break;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 using UnityEngine.UI;
@@ -30,6 +31,8 @@ public class PanelGestorCorreo : MonoBehaviour
     public GameObject timerPanel;
     public GameObject cluePanel;
     public GameObject panelUltimo;
+    public GameObject drama;
+    public Camera camara;
     //public GameObject elPlayer;
 
     public Image[] images;
@@ -56,7 +59,7 @@ public class PanelGestorCorreo : MonoBehaviour
     {
         elTimer.gameObject.SetActive(false);
         //elPlayer.SetActive(false);
-
+        
     }
 
 
@@ -133,7 +136,7 @@ public class PanelGestorCorreo : MonoBehaviour
         else
         {
             currentStep++;
-            if (currentStep < 7) // Número total de pasos (0 a 10)
+            if (currentStep < 6) // Número total de pasos (0 a 10)
             {
                 Show2MailStep();
             }
@@ -148,42 +151,41 @@ public class PanelGestorCorreo : MonoBehaviour
     {
         switch (currentStep)
         {
-            case 0:
-                images[6].gameObject.SetActive(true);
-                images[5].gameObject.SetActive(false);
-                break;
+            
 
-            case 1:
+            case 0:
                 images[7].gameObject.SetActive(true);
                 images[6].gameObject.SetActive(false);
+                
+                drama.GetComponent<AudioSource>().Play();
                 break;
 
                 
-            case 2:
+            case 1:
                 images[8].gameObject.SetActive(true);
                 ShowManDialogue2(0);
                 images[7].gameObject.SetActive(false);
                 break;
-            case 3:
+            case 2:
                 images[9].gameObject.SetActive(true);
                 dialogueTextMan2.gameObject.SetActive(false);
                 ShowManDialogue22(1);
                 images[8].gameObject.SetActive(false);
                 break;
-            case 4:
+            case 3:
                 images[10].gameObject.SetActive(true);
                 dialogueTextMan22.gameObject.SetActive(false); 
                 dialogueTextMan2.gameObject.SetActive(true);
                 ShowManDialogue2(2);
                 images[9].gameObject.SetActive(false);
                 break;
-            case 5:
+            case 4:
                 images[11].gameObject.SetActive(true);
                 dialogueTextMan2.gameObject.SetActive(false);
                 ShowGeyDialogue(0);
                 images[10].gameObject.SetActive(false);
                 break;
-            case 6:
+            case 5:
                 images[7].gameObject.SetActive(true);
                 dialogueTextGey.gameObject.SetActive(false);    
                 panelUltimo.gameObject.SetActive(true);
@@ -274,6 +276,7 @@ void HandlePicturesProgression()
                 cluePanel.gameObject.SetActive(false);
                 images[6].gameObject.SetActive(true);
                 images[5].gameObject.SetActive(false);
+                camara.GetComponent<AudioSource>().Stop();
                 MailOver = true;
                 break;
 
@@ -350,20 +353,20 @@ void HandlePicturesProgression()
         }
         else
         {
-            if (currentStep == 2)
+            if (currentStep == 1)
             {
                 dialogueTextMan2.text = dialogueLinesMan2[0];
 
             }
-            else if (currentStep == 3)
+            else if (currentStep == 2)
             {
                 dialogueTextMan22.text = dialogueLinesMan2[1];
             }
-            else if (currentStep == 4)
+            else if (currentStep == 3)
             {
                 dialogueTextMan2.text = dialogueLinesMan2[2];
             }
-            else if (currentStep == 5)
+            else if (currentStep == 4)
             {
                 dialogueTextGey.text = dialogueLinesGey[0];
             }

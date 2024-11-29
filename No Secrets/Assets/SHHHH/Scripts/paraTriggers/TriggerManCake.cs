@@ -8,6 +8,7 @@ public class TriggerManCake : MonoBehaviour
 
     public GameObject dialoguito;
     public GameObject panelFinal;
+    public GameObject panelAyuda;
     //public GameObject player;
     // Busca el componente PlayerScript dentro del GameObject referenciado como "player"
     //PlayerController playerScript;
@@ -19,6 +20,7 @@ public class TriggerManCake : MonoBehaviour
         {
             Debug.Log("Cómo? me estaba haciendo una fiesta?!");
             panelFinal.gameObject.SetActive(true);
+            panelAyuda.gameObject.SetActive(false);
 
 
             
