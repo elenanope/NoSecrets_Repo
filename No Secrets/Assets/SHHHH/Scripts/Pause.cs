@@ -1,37 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
 
     public GameObject panelPausa;
-    public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool isPaused;
+
 
     // Update is called once per frame
     void Update()
     {
+        if(!panelPausa.activeInHierarchy)
+        {
+            isPaused = false;
+            Time.timeScale = 1f;
+        }
         if(Input.GetKeyDown(KeyCode.P))
         {
-            panelPausa.gameObject.SetActive(true);
+            UpdateGameState();
+            
 
         }
+    }
 
+    private void UpdateGameState()
+    {
+        isPaused = !isPaused;
 
-
-        if(panelPausa.gameObject.activeInHierarchy)
+        if (isPaused)
         {
-            player.gameObject.SetActive(false);
-
+            Time.timeScale = 0f;panelPausa.gameObject.SetActive(true);
         }
         else
         {
-            player.gameObject.SetActive(true );
+            Time.timeScale = 1f; panelPausa.gameObject.SetActive(false);
         }
     }
 }

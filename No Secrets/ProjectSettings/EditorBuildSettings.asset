@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SHHHH/Scenes/8.Switch.unity
     guid: 4200f5c1ec47ded41a18b1782067468f
+  - enabled: 1
+    path: Assets/SHHHH/Scenes/CREDITOS.unity
+    guid: 9d882d9ae9fbd664bab9249e6aede963
   m_configObjects: {}
